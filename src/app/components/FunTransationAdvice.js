@@ -67,7 +67,6 @@ export default function FunTranslationAdvice() {
     }
   };
 
-  // Definir la función fetchAdvice para obtener un consejo de la Advice Slip API
   const fetchAdvice = async () => {
     setLoading(true);
     setError(null);
@@ -83,7 +82,7 @@ export default function FunTranslationAdvice() {
       console.log('Advice API Response:', data);
       
       setAdvice(data.slip.advice);
-      setTranslatedText('');  // Resetea la traducción al obtener un nuevo consejo
+      setTranslatedText(''); 
 
     } catch (error) {
       console.error('Error al obtener el consejo:', error.message);
@@ -94,7 +93,7 @@ export default function FunTranslationAdvice() {
   };
 
   useEffect(() => {
-    fetchAdvice();  // Llamar a la función fetchAdvice al cargar el componente
+    fetchAdvice(); 
   }, []);
 
   return (

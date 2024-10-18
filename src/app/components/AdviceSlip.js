@@ -14,7 +14,6 @@ export default function AdviceSlip() {
     setIsAnimating(true);
     
     try {
-      // Añadimos un timestamp para evitar el caché de la API
       const response = await fetch(`https://api.adviceslip.com/advice?t=${Date.now()}`);
       const data = await response.json();
       setAdvice(data.slip.advice);
@@ -23,7 +22,6 @@ export default function AdviceSlip() {
       console.error('Error fetching advice:', error);
     } finally {
       setLoading(false);
-      // Reseteamos la animación después de un breve momento
       setTimeout(() => setIsAnimating(false), 500);
     }
   };
